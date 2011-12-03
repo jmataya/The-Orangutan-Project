@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Note: this assumes that the system runs on Ubuntu. Currently tested on 11.10.
+
+# Retrieve the prerequisites
+sudo apt-get install git-core cmake freeglut3-dev pkg-config build-essential libxmu-dev libxi-dev libusb-1.0-0-dev
+
+# Get the OpenKinect SDK
+git clone git@github.com:OpenKinect/libfreenect.git
+
+# Build OpenKinect
+cd libfreenect
+mkdir build
+cd build
+cmake ..
+make
+
+# Install OpenKinect
+sudo make install
+sudo ldconfig /usr/local/lib64/
+
+# Set the correct user name
+adduser $SUDO_USER video
