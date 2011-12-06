@@ -18,6 +18,3 @@ make
 # Install OpenKinect
 sudo make install
 sudo ldconfig /usr/local/lib64/
-
-# Set the correct user name
-adduser $SUDO_USER video
